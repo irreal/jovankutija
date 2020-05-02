@@ -1,0 +1,28 @@
+<div *ngIf="lobby$ | async as lobby; else loading">
+  <p>Ulazite u sobu: {{ lobby.name }}</p>
+  <p>Tema sobe: {{ lobby.setName }}</p>
+  <p>Nadimak:</p>
+  <input [(ngModel)]="playerNickname" placeholder="nadimak" />
+  <div *ngIf="set$ | async as set">
+    <ng-container *ngIf="set.characters && set.characters.length">
+      <div
+        *ngFor="let character of set.characters"
+        (click)="selectedCharacter = character.name"
+      >
+        <p>
+          {{ character.name }}
+          {{ selectedCharacter == character.name ? ' - SELEKTOVAN' : '' }}
+        </p>
+        <img [src]="character.avatarUrl" class="avatar" alt="avatar picture" />
+      </div>
+    </ng-container>
+    <p-button
+      label="Uđi u sobu"
+      [disabled]="!parametersValid()"
+      (click)="joinLobby()"
+    ></p-button>
+  </div>
+</div>
+<ng-template #loading>
+  Učitavanje u toku...
+</ng-template>
