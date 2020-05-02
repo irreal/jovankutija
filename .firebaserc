@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "jovankutija": {
+      "hosting": {
+        "jovankutija": [
+          "jovankutija"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "jovankutija"
+  }
+}
