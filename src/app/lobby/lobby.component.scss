@@ -1,0 +1,21 @@
+.message-avatar {
+  max-width: 64px;
+  max-width: 64px;
+}
+.messages {
+  height: 450px;
+  overflow-y: scroll;
+}
+.message {
+  text-align: start;
+}
+.message .align-end {
+  text-align: end;
+}
+.composer input {
+  width: 100%;
+  font-size: 22px;
+}
+.leave-lobby-button {
+  margin-top: 50px;
+}

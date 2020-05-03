@@ -18,7 +18,15 @@ export class HomeComponent implements OnInit {
     this.sessions$ = this.lobby.getSessions();
   }
 
-  joinLobby() {
+  private joinLobby(code: string) {
     this.router.navigate(['join', this.code]);
+    this.code = '';
+  }
+
+  checkCode() {
+    if (this.code.replace('-', '').length >= 6) {
+      const cleanCode = this.code.replace('-', '');
+      this.joinLobby(cleanCode);
+    }
   }
 }

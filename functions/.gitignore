@@ -6,3 +6,6 @@
 typings/
 
 node_modules/
+
+# Admin credentials
+jovankutija-firebase-adminsdk-77ibi-50cb441936.json

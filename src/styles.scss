@@ -1,5 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  background-color: #3f3f3f;
-  color: white;
+  background-color: #46375d;
+  background: url(assets/img/pozadina-tv-1.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #ffcc33;
+  font-family: 'Century Gothic';
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+  text-align: center;
 }

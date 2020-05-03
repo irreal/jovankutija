@@ -6,12 +6,16 @@
   <div *ngIf="set$ | async as set">
     <ng-container *ngIf="set.characters && set.characters.length">
       <div
-        *ngFor="let character of set.characters"
-        (click)="selectedCharacter = character.name"
+        *ngFor="let character of notSelectedCharacters(set, lobby)"
+        (click)="setSelected(character)"
       >
         <p>
           {{ character.name }}
-          {{ selectedCharacter == character.name ? ' - SELEKTOVAN' : '' }}
+          {{
+            selectedCharacterAvatar == character.avatarUrl
+              ? ' - SELEKTOVAN'
+              : ''
+          }}
         </p>
         <img [src]="character.avatarUrl" class="avatar" alt="avatar picture" />
       </div>
@@ -19,10 +23,27 @@
     <p-button
       label="Uđi u sobu"
       [disabled]="!parametersValid()"
-      (click)="joinLobby()"
+      (onClick)="joinLobby()"
     ></p-button>
   </div>
 </div>
 <ng-template #loading>
   Učitavanje u toku...
 </ng-template>
+<p-dialog
+  header="Ulazak u sobu"
+  [(visible)]="showError"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+>
+  {{ errorText }}
+  <p-footer>
+    <p-button
+      type="button"
+      icon="pi pi-check"
+      (click)="showError = false"
+      label="Ok"
+    ></p-button>
+  </p-footer>
+</p-dialog>

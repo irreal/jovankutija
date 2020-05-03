@@ -1,0 +1,80 @@
+<div *ngIf="lobby$ | async as lobby">
+  <h2>{{ lobby.name }}</h2>
+  <h3>{{ lobby.setName }}</h3>
+  <h3>Dopisivanje:</h3>
+  <div>
+    Prisutni članovi:
+    <div *ngFor="let player of players">
+      {{ player.name }} kao {{ player.characterName }}
+    </div>
+  </div>
+  <div class="messages" #messagesContainer>
+    <div
+      *ngFor="let message of lobby.chat"
+      class="message p-grid p-align-center"
+    >
+      <div class="p-col-1">
+        <img
+          [src]="getAvatarUrl(message)"
+          *ngIf="!isOwnMessage(message)"
+          alt="avatar-image"
+          class="message-avatar"
+        />
+      </div>
+      <div class="p-col-10" [class.align-end]="isOwnMessage(message)">
+        <span class="author">
+          {{ formatMessageHeader(message) }}
+        </span>
+        <span class="message">{{ message.message }}</span>
+      </div>
+      <div class="p-col1">
+        <img
+          *ngIf="isOwnMessage(message)"
+          [src]="getAvatarUrl(message)"
+          alt="avatar-image"
+          class="message-avatar"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="composer p-grid">
+    <div class="p-col-11">
+      <input [(ngModel)]="composeText" placeholder="Šta želiš da kažeš?" />
+    </div>
+    <div class="p-col-1">
+      <p-button label="Pošalji" (click)="sendMessage()"></p-button>
+    </div>
+  </div>
+  <div>
+    <p-button
+      label="Izađi iz sobe"
+      class="leave-lobby-button"
+      (click)="showExitDialog = true"
+    ></p-button>
+  </div>
+</div>
+
+<p-dialog
+  header="Izlazak iz sobe"
+  [modal]="true"
+  [(visible)]="showExitDialog"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+>
+  Da li ste sigurni da želite da izađete iz ove sobe?
+  <p-footer>
+    <p-button
+      type="button"
+      icon="pi pi-check"
+      (click)="leaveLobby()"
+      label="Da"
+    ></p-button>
+    <p-button
+      type="button"
+      icon="pi pi-times"
+      (click)="showExitDialog = false"
+      label="Ne"
+      class="ui-button-secondary"
+    ></p-button>
+  </p-footer>
+</p-dialog>

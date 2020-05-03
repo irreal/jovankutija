@@ -11,13 +11,23 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
+import { DialogModule } from 'primeng/dialog';
+import { InputMaskModule } from 'primeng/inputmask';
+
 import { HomeComponent } from './home/home.component';
 import { JoinLobbyComponent } from './join-lobby/join-lobby.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { ORIGIN } from '@angular/fire/functions';
+import { LobbyComponent } from './lobby/lobby.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, JoinLobbyComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    JoinLobbyComponent,
+    LobbyComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -28,8 +38,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireAuthModule,
     TabViewModule,
     ButtonModule,
+    DialogModule,
+    InputMaskModule,
   ],
-  providers: [],
+  // providers: [{ provide: ORIGIN, useValue: 'http://localhost:5001' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
