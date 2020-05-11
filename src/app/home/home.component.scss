@@ -1,23 +1,10 @@
-.session-table,
-.join-room {
-  margin-top: 30px;
-}
-
-.main-holder {
-  text-align: center;
-}
-
 .main-panel {
-  width: 400px;
-  height: 14%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: block;
-  position: absolute;
+  margin: 0 auto;
   text-align: center;
-  font-size: 32px;
+  max-width: 400px;
+  font-size: 24px;
   input {
-    font-size: 32px;
+    font-size: 24px;
     border: 1px solid black;
     background-color: transparent;
     width: 70%;
@@ -30,11 +17,8 @@
     text-align: center;
   }
 }
-.main-panel-1 {
-  top: 65%;
-}
-.main-panel-2 {
-  top: 88%;
+.panel-item {
+  margin: 25px 0;
 }
 .my-body .ui-button {
   background-color: white;

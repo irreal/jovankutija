@@ -20,6 +20,7 @@ import { JoinLobbyComponent } from './join-lobby/join-lobby.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { ORIGIN } from '@angular/fire/functions';
 import { LobbyComponent } from './lobby/lobby.component';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LobbyComponent } from './lobby/lobby.component';
     HomeComponent,
     JoinLobbyComponent,
     LobbyComponent,
+    GameComponent,
   ],
   imports: [
     BrowserModule,

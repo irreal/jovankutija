@@ -6,13 +6,12 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  templateUrl: './home-mobile.component.html',
+  styleUrls: ['./home-mobile.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeMobileComponent implements OnInit {
   sessions$: Observable<Session[]>;
   public code: string;
-  public nickname: string;
   constructor(private lobby: LobbyService, private router: Router) {}
 
   ngOnInit(): void {
@@ -20,17 +19,13 @@ export class HomeComponent implements OnInit {
   }
 
   private joinLobby(code: string) {
-    this.router.navigate(['join', code]);
+    this.router.navigate(['join', this.code]);
     this.code = '';
   }
 
   checkCode() {
-    const cleanCode = this.code
-      .replace(' ', '')
-      .replace('-', '')
-      .replace(',', '')
-      .replace('_', '');
-    if (cleanCode.length >= 6) {
+    if (this.code.replace('-', '').length >= 6) {
+      const cleanCode = this.code.replace('-', '');
       this.joinLobby(cleanCode);
     }
   }
