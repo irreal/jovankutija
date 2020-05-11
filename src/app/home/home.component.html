@@ -1,25 +1,27 @@
-<div class="main-panel">
-  <div class="ui-inputgroup panel-item">
-    <span class="ui-inputgroup-addon">
-      <i class="pi pi-user" style="line-height: 1.25;"></i>
-    </span>
-    <input
-      [(ngModel)]="nickname"
-      placeholder="Nadimak"
-      maxlength="12"
-      type="text"
-    />
+<div class="container">
+  <div class="main-panel">
+    <div class="ui-inputgroup panel-item">
+      <span class="ui-inputgroup-addon">
+        <i class="pi pi-user" style="line-height: 1.25;"></i>
+      </span>
+      <input
+        [(ngModel)]="nickname"
+        placeholder="Nadimak"
+        maxlength="12"
+        type="text"
+      />
+    </div>
+    <div class="ui-inputgroup panel-item">
+      <span class="ui-inputgroup-addon">
+        <i class="pi pi-user" style="line-height: 1.25;"></i>
+      </span>
+      <input
+        [(ngModel)]="code"
+        placeholder="Broj sobe"
+        type="text"
+        (ngModelChange)="checkCode()"
+      />
+    </div>
+    <p-button label="Kreiraj novu sobu" class="panel-item"></p-button>
   </div>
-  <div class="ui-inputgroup panel-item">
-    <span class="ui-inputgroup-addon">
-      <i class="pi pi-user" style="line-height: 1.25;"></i>
-    </span>
-    <input
-      [(ngModel)]="code"
-      placeholder="Broj sobe"
-      type="text"
-      (ngModelChange)="checkCode()"
-    />
-  </div>
-  <p-button label="Kreiraj novu sobu" class="panel-item"></p-button>
 </div>
