@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   private joinLobby(code: string) {
-    this.router.navigate(['join', code]);
+    this.router.navigate(['join', code, this.nickname]);
     this.code = '';
   }
 
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
       .replace('-', '')
       .replace(',', '')
       .replace('_', '');
-    if (cleanCode.length >= 6) {
+    if (cleanCode.length >= 6 && this.nickname && this.nickname.length) {
       this.joinLobby(cleanCode);
     }
   }

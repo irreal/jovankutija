@@ -1,27 +1,34 @@
 <div class="container">
   <div class="main-panel">
-    <div class="ui-inputgroup panel-item">
-      <span class="ui-inputgroup-addon">
-        <i class="pi pi-user" style="line-height: 1.25;"></i>
-      </span>
-      <input
-        [(ngModel)]="nickname"
-        placeholder="Nadimak"
-        maxlength="12"
-        type="text"
-      />
+    <img src="/assets/img/jovankutija.svg" alt="logo" />
+    <p-button label="Kreiraj sobu" class="create-room panel-item"></p-button>
+    <p>
+      ILI
+    </p>
+    <div class="join-room-ui">
+      <div class="ui-inputgroup panel-item">
+        <input
+          [(ngModel)]="nickname"
+          placeholder="nadimak"
+          maxlength="12"
+          type="text"
+          class="nickname"
+        />
+      </div>
+      <div class="ui-inputgroup panel-item">
+        <input
+          [(ngModel)]="code"
+          placeholder="broj sobe"
+          type="text"
+          class="roomnumber"
+          maxlength="6"
+        />
+      </div>
+      <p-button
+        label="Uđi u sobu"
+        (onClick)="checkCode()"
+        class="join-room panel-item"
+      ></p-button>
     </div>
-    <div class="ui-inputgroup panel-item">
-      <span class="ui-inputgroup-addon">
-        <i class="pi pi-user" style="line-height: 1.25;"></i>
-      </span>
-      <input
-        [(ngModel)]="code"
-        placeholder="Broj sobe"
-        type="text"
-        (ngModelChange)="checkCode()"
-      />
-    </div>
-    <p-button label="Kreiraj novu sobu" class="panel-item"></p-button>
   </div>
 </div>

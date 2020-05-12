@@ -1,11 +1,7 @@
-import {
-  Component,
-  OnInit,
-  ɵNOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LobbyService } from '../lobby.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, flatMap, tap, share, single, shareReplay } from 'rxjs/operators';
+import { map, flatMap, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { CharacterSet, Session } from '../models';
 

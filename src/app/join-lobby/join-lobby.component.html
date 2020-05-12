@@ -1,4 +1,25 @@
-<div *ngIf="lobby$ | async as lobby; else loading">
+<div class="page"></div>
+<div class="game-container">
+  <img
+    src="/assets/img/pozadina-mob-1.png"
+    class="background-image show-when-high"
+    alt="background"
+  />
+  <img
+    src="/assets/img/pozadina-tv-1.png"
+    class="background-image show-when-wide"
+    alt="background"
+  />
+  <div class="game-content">
+    <div class="game-panel rotate-phone-container show-when-wide"></div>
+    <div class="game-panel rotate-phone show-when-wide">
+      Za ovu igru, potrebno je da okrenete telefon uspravno
+    </div>
+    <div class="button"></div>
+  </div>
+</div>
+
+<!-- <div *ngIf="lobby$ | async as lobby; else loading">
   <p>Ulazite u sobu: {{ lobby.name }}</p>
   <p>Tema sobe: {{ lobby.setName }}</p>
   <p>Nadimak:</p>
@@ -46,4 +67,4 @@
       label="Ok"
     ></p-button>
   </p-footer>
-</p-dialog>
+</p-dialog> -->

@@ -1,4 +1,44 @@
-.avatar {
-  max-width: 128px;
-  max-height: 128px;
+@import '../../responsive-setup.scss';
+
+.page {
+  background-color: #483d67;
+}
+
+.button {
+  position: absolute;
+  opacity: 0.1;
+  background-color: aqua;
+}
+
+@media (orientation: portrait) {
+  .button {
+    top: 67.1%;
+    left: 28.6%;
+    width: 43.3%;
+    height: 14.4%;
+  }
+}
+
+@media (orientation: landscape) {
+  .button {
+    top: 67.5%;
+    left: 40%;
+    width: 20.1%;
+    height: 14%;
+  }
+  .rotate-phone-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.4;
+  }
+  .rotate-phone {
+    text-align: center;
+    color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
