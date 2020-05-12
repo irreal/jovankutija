@@ -1,64 +1,44 @@
-// .session-table,
-// .join-room {
-//   margin-top: 30px;
-// }
-
-// .main-holder {
-//   text-align: center;
-// }
-
-// .main-panel {
-//   width: 400px;
-//   height: 14%;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   display: block;
-//   position: absolute;
-//   text-align: center;
-//   font-size: 32px;
-//   input {
-//     font-size: 32px;
-//     border: 1px solid black;
-//     background-color: transparent;
-//     width: 70%;
-//     color: #ffcc33;
-//     text-align: center;
-//   }
-//   ::placeholder {
-//     color: #ffcc33;
-//     opacity: 0.2;
-//     text-align: center;
-//   }
-// }
-// .main-panel-1 {
-//   top: 65%;
-// }
-// .main-panel-2 {
-//   top: 88%;
-// }
-// .my-body .ui-button {
-//   background-color: white;
-// }
-
-// :host {
-//   ::ng-deep .ui-button {
-//     background-color: transparent;
-//     background-image: none;
-//     border: 1px solid black;
-//     color: white;
-//     font-size: 24px;
-//     color: #ffcc33;
-//   }
-// }
-
 .game-container {
   position: absolute;
-  width: 100%;
-  padding-bottom: 177.7%;
-  background-color: aqua;
-  background-image: url(/assets/img/pozadina-mob-1.png);
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media (orientation: portrait) {
+  .game-container {
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-bottom: 119.5%;
+  }
+  .background-wide {
+    display: none;
+  }
+  .button {
+    top: 67.1%;
+    left: 28.6%;
+    width: 43.3%;
+    height: 14.4%;
+  }
+}
+
+@media (orientation: landscape) {
+  .game-container {
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-bottom: 56.25%;
+  }
+  .background-high {
+    display: none;
+  }
+  .button {
+    top: 67.5%;
+    left: 40%;
+    width: 20.1%;
+    height: 14%;
+  }
 }
 .game-content {
   position: absolute;
@@ -66,21 +46,15 @@
   bottom: 0;
   left: 0;
   right: 0;
-  // padding: 0 24px; /* Optional padding for content area */
 }
 .button {
   position: absolute;
-  top: 67%;
-  left: 18%;
-  width: 64.1%;
-  height: 14.5%;
   opacity: 0.1;
   background-color: aqua;
 }
 .background-image {
   position: absolute;
-  // width: 100%;
-  // height: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   bottom: 0;
