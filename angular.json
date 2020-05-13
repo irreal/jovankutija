@@ -137,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "jovankutija"
+  "defaultProject": "jovankutija",
+  "cli": {
+    "analytics": "b4cc9be4-e5a9-4521-b437-74d78d0d9139"
+  }
 }

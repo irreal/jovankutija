@@ -1,23 +1,52 @@
 <div class="page"></div>
 <div class="game-container">
   <img
-    src="/assets/img/pozadina-mob-1.png"
+    src="/assets/img/izbor-mob.png"
     class="background-image show-when-high"
     alt="background"
   />
   <img
-    src="/assets/img/pozadina-tv-1.png"
+    src="/assets/img/izbor-tv.png"
     class="background-image show-when-wide"
     alt="background"
   />
   <div class="game-content">
+    <!-- <div class="game-panel">{{nickname}}</div> -->
     <div class="game-panel rotate-phone-container show-when-wide"></div>
     <div class="game-panel rotate-phone show-when-wide">
       Za ovu igru, potrebno je da okrenete telefon uspravno
     </div>
-    <div class="button"></div>
+
+    <div
+      class="show-when-high game-panel-container"
+      *ngIf="lobby$ | async as lobby; else loading"
+    >
+      <div class="game-panel text nickname">
+        {{ nickname }} kao {{ activeCharacter.name }}
+      </div>
+      <p-carousel
+        [value]="characters"
+        [circular]="true"
+        (onPage)="activeCharacterIndex = $event.page"
+        [styleClass]="'game-panel carousel'"
+      >
+        <ng-template let-character pTemplate="item">
+          <div class="placeholder"></div>
+          <img
+            class="character"
+            [src]="character.avatarUrl"
+            [alt]="character.name"
+          />
+        </ng-template>
+      </p-carousel>
+    </div>
   </div>
 </div>
+<ng-template #loading>
+  <div class="game-panel text centered">
+    Učitavanje u toku...
+  </div>
+</ng-template>
 
 <!-- <div *ngIf="lobby$ | async as lobby; else loading">
   <p>Ulazite u sobu: {{ lobby.name }}</p>

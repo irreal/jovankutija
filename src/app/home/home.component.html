@@ -1,10 +1,24 @@
 <div class="container">
   <div class="main-panel">
     <img src="/assets/img/jovankutija.svg" alt="logo" />
-    <p-button label="Kreiraj sobu" class="create-room panel-item"></p-button>
+    <div class="game-panel show-when-wide">
+      <ng-container *ngTemplateOutlet="createRoom"></ng-container>
     <p>
       ILI
     </p>
+      <ng-container *ngTemplateOutlet="joinRoom"></ng-container>
+    </div>
+    <div class="game-panel show-when-high">
+      <ng-container *ngTemplateOutlet="joinRoom"></ng-container>
+    <p>
+      ILI
+    </p>
+      <ng-container *ngTemplateOutlet="createRoom"></ng-container>
+    </div>
+    <ng-template #createRoom>
+    <p-button label="Kreiraj sobu" class="create-room panel-item"></p-button>
+    </ng-template>
+    <ng-template #joinRoom>
     <div class="join-room-ui">
       <div class="ui-inputgroup panel-item">
         <input
@@ -30,5 +44,6 @@
         class="join-room panel-item"
       ></p-button>
     </div>
+    </ng-template>
   </div>
 </div>

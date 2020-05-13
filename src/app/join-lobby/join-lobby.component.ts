@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { LobbyService } from '../lobby.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, flatMap, tap } from 'rxjs/operators';
+import { map, flatMap, tap, delay } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { CharacterSet, Session } from '../models';
+import { Character } from '../models/character.model';
 
 @Component({
   selector: 'app-join-lobby',
@@ -12,10 +13,12 @@ import { CharacterSet, Session } from '../models';
 })
 export class JoinLobbyComponent implements OnInit {
   lobby$: Observable<Session>;
-  set$: Observable<CharacterSet>;
+  set: CharacterSet;
+  activeCharacterIndex = 0;
   playerNickname: string;
   selectedCharacterName: string;
   selectedCharacterAvatar: string;
+  nickname: string;
   errorText: string;
   showError = false;
   constructor(
@@ -26,11 +29,37 @@ export class JoinLobbyComponent implements OnInit {
 
   ngOnInit(): void {
     this.lobby$ = this.route.params.pipe(
-      tap(() => (this.set$ = of({} as CharacterSet))),
+      tap((params) => {
+        this.set = {} as CharacterSet;
+        this.nickname = params.nickname as string;
+      }),
       map((params) => params.lobbyId as string),
       flatMap((lobbyId) => this.lobby.getSession(lobbyId)),
-      tap((lobby) => (this.set$ = this.lobby.getSet(lobby.set))),
+      tap((lobby) =>
+        this.lobby.getSet(lobby.set).subscribe((set) => {
+          this.set = set;
+        }),
+      ),
     );
+  }
+
+  get activeCharacter() {
+    if (!this.set || !this.set.characters || !this.set.characters.length) {
+      return {} as Character;
+    }
+    if (
+      this.activeCharacterIndex < 0 ||
+      this.activeCharacterIndex >= this.set.characters.length
+    ) {
+      return {} as Character;
+    }
+    return this.set.characters[this.activeCharacterIndex];
+  }
+  get characters(): Character[] {
+    if (!this.set || !this.set.characters) {
+      return [];
+    }
+    return this.set.characters;
   }
   parametersValid(): boolean {
     return !!(

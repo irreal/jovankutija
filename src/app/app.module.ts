@@ -13,6 +13,7 @@ import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
 import { DialogModule } from 'primeng/dialog';
 import { InputMaskModule } from 'primeng/inputmask';
+import { CarouselModule } from 'primeng/carousel';
 
 import { HomeComponent } from './home/home.component';
 import { JoinLobbyComponent } from './join-lobby/join-lobby.component';
@@ -42,6 +43,7 @@ import { GameComponent } from './game/game.component';
     ButtonModule,
     DialogModule,
     InputMaskModule,
+    CarouselModule,
   ],
   // providers: [{ provide: ORIGIN, useValue: 'http://localhost:5001' }],
   bootstrap: [AppComponent],

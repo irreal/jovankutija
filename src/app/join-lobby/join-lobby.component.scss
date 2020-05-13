@@ -4,18 +4,57 @@
   background-color: #483d67;
 }
 
-.button {
-  position: absolute;
-  opacity: 0.1;
-  background-color: aqua;
-}
-
 @media (orientation: portrait) {
-  .button {
-    top: 67.1%;
-    left: 28.6%;
-    width: 43.3%;
-    height: 14.4%;
+  // .character {
+  //   left: 25%;
+  //   width: 50%;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  // }
+
+  .nickname {
+    top: 19%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+  }
+  .ui-carousel.carousel {
+    background-color: aqua;
+  }
+
+  :host {
+    ::ng-deep .ui-carousel {
+      position: absolute;
+      left: 17.7%;
+      top: 21.7%;
+      width: 62.3%;
+      height: 78.4%;
+    }
+    ::ng-deep .ui-carousel-item {
+      width: 100%;
+      height: 100%;
+    }
+    ::ng-deep .ui-carousel .placeholder {
+      width: 62.3vw;
+      height: 130vw;
+      // width: 320px;
+      // height: 695px;
+    }
+    ::ng-deep .ui-carousel-dot-item.ui-state-highlight ui-carousel-dot-icon {
+      color: yellow !important;
+    }
+    ::ng-deep .ui-carousel .ui-button {
+      background-color: transparent !important;
+      border: 0 !important;
+      color: yellow !important;
+    }
+    ::ng-deep .ui-carousel .character {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 }
 

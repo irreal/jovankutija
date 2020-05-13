@@ -1,3 +1,5 @@
+@import '../../responsive-setup.scss';
+
 .main-panel {
   margin: 100px auto 0 auto;
   text-align: center;
@@ -42,7 +44,7 @@
 }
 
 .join-room-ui {
-  padding: 5px;
+  padding: 25px;
   border: solid 2px #8b858e;
   // box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
