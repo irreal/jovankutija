@@ -13,11 +13,12 @@
   // }
 
   .nickname {
-    top: 19%;
+    top: 16%;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     text-align: center;
+    color: yellow;
   }
   .ui-carousel.carousel {
     background-color: aqua;
@@ -31,12 +32,16 @@
       width: 62.3%;
       height: 78.4%;
     }
+    // ::ng-deep .ui-carousel-item img {
+    //   height: 100%;
+    //   width: 10%;
+    // }
     ::ng-deep .ui-carousel-item {
       width: 100%;
-      height: 100%;
+      height: 80%;
     }
     ::ng-deep .ui-carousel .placeholder {
-      width: 62.3vw;
+      width: 82.3vw;
       height: 130vw;
       // width: 320px;
       // height: 695px;
@@ -54,7 +59,9 @@
     }
     ::ng-deep .ui-carousel .character {
       position: absolute;
-      width: 100%;
+      // width: 80%;
+      height: 100%;
+
       top: 50%;
       transform: translatey(-50%);
       padding: 2px;
