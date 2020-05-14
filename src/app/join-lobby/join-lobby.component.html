@@ -24,7 +24,19 @@
       <div class="game-panel text nickname">
         {{ getCharacterTitle(activeCharacter, lobby) }}
       </div>
-      <p-carousel
+      <img
+        class="character"
+        (click)="selectCharacter(activeCharacter, lobby)"
+        [class.picked]="isInUse(activeCharacter, lobby)"
+        [src]="activeCharacter.avatarUrl"
+        [alt]="activeCharacter.name"
+      />
+      <div
+        class="previous-character"
+        (click)="updateActiveCharacterIndex(-1)"
+      ></div>
+      <div class="next-character" (click)="updateActiveCharacterIndex(1)"></div>
+      <!-- <p-carousel 
         [value]="characters"
         [circular]="true"
         (onPage)="activeCharacterIndex = $event.page"
@@ -40,7 +52,7 @@
             [alt]="character.name"
           />
         </ng-template>
-      </p-carousel>
+      </p-carousel> -->
     </div>
   </div>
 </div>

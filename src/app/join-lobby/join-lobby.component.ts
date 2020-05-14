@@ -43,6 +43,15 @@ export class JoinLobbyComponent implements OnInit {
     );
   }
 
+  updateActiveCharacterIndex(amount: number) {
+    this.activeCharacterIndex += amount;
+    while (this.activeCharacterIndex < 0) {
+      this.activeCharacterIndex += this.characters.length;
+    }
+    this.activeCharacterIndex =
+      this.activeCharacterIndex % this.characters.length;
+  }
+
   get activeCharacter() {
     if (!this.set || !this.set.characters || !this.set.characters.length) {
       return {} as Character;
