@@ -22,7 +22,7 @@
       *ngIf="lobby$ | async as lobby; else loading"
     >
       <div class="game-panel text nickname">
-        {{ nickname }} kao {{ activeCharacter.name }}
+        {{ getCharacterTitle(activeCharacter, lobby) }}
       </div>
       <p-carousel
         [value]="characters"
@@ -34,6 +34,7 @@
           <div class="placeholder"></div>
           <img
             class="character"
+            [class.picked]="isInUse(character, lobby)"
             [src]="character.avatarUrl"
             [alt]="character.name"
           />

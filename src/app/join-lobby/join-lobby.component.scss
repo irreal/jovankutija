@@ -41,8 +41,11 @@
       // width: 320px;
       // height: 695px;
     }
-    ::ng-deep .ui-carousel-dot-item.ui-state-highlight ui-carousel-dot-icon {
-      color: yellow !important;
+    ::ng-deep .ui-carousel-dot-item.ui-state-highlight .ui-carousel-dot-icon {
+      background-color: #543f71 !important;
+    }
+    ::ng-deep .ui-carousel .ui-button:focus {
+      box-shadow: none !important;
     }
     ::ng-deep .ui-carousel .ui-button {
       background-color: transparent !important;
@@ -53,7 +56,11 @@
       position: absolute;
       width: 100%;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translatey(-50%);
+      padding: 2px;
+    }
+    ::ng-deep .ui-carousel .character.picked {
+      filter: grayscale(1);
     }
   }
 }

@@ -61,6 +61,30 @@ export class JoinLobbyComponent implements OnInit {
     }
     return this.set.characters;
   }
+
+  isInUse(character: Character, lobby: Session) {
+    const player = this.getPlayerFromCharacterName(lobby, character.name);
+    return !!player;
+  }
+  private getPlayerFromCharacterName(lobby: Session, characterName: string) {
+    return lobby.players.find((p) => p.characterName === characterName);
+  }
+
+  getCharacterPlayerName(name: string, lobby: Session) {
+    const player = this.getPlayerFromCharacterName(lobby, name);
+    if (!player) {
+      return undefined;
+    }
+    return player.name;
+  }
+
+  getCharacterTitle(character: Character, lobby: Session) {
+    const name = this.getCharacterPlayerName(character.name, lobby);
+    if (name) {
+      return `${name} kao ${character.name}`;
+    }
+    return `${character.name}`;
+  }
   parametersValid(): boolean {
     return !!(
       this.playerNickname &&
