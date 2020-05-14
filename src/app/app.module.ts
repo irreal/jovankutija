@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
@@ -44,6 +44,7 @@ import { GameComponent } from './game/game.component';
     DialogModule,
     InputMaskModule,
     CarouselModule,
+    HammerModule,
   ],
   // providers: [{ provide: ORIGIN, useValue: 'http://localhost:5001' }],
   bootstrap: [AppComponent],

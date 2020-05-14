@@ -26,6 +26,8 @@
       </div>
       <img
         class="character"
+        (swipeleft)="updateActiveCharacterIndex(-1)"
+        (swiperight)="updateActiveCharacterIndex(1)"
         (click)="selectCharacter(activeCharacter, lobby)"
         [class.picked]="isInUse(activeCharacter, lobby)"
         [src]="activeCharacter.avatarUrl"
