@@ -85,21 +85,21 @@ export class JoinLobbyComponent implements OnInit {
     }
     return `${character.name}`;
   }
-  parametersValid(): boolean {
-    return !!(
-      this.playerNickname &&
-      this.playerNickname.length > 2 &&
-      this.selectedCharacterName &&
-      this.selectedCharacterAvatar
-    );
+  selectCharacter(character: Character, lobby: Session) {
+    if (this.isInUse(character, lobby)) {
+      this.errorText = `Lik "${this.activeCharacter.name}" je već zauzet. Odaberite jedan od dostupnih likova`;
+      this.showError = true;
+      return;
+    }
+    this.joinLobby(character, lobby);
   }
-  async joinLobby() {
+  async joinLobby(character: Character, lobby: Session) {
     try {
       const response = await this.lobby.joinLobby(
         this.route.snapshot.params.lobbyId,
-        this.playerNickname,
-        this.selectedCharacterAvatar,
-        this.selectedCharacterName,
+        this.nickname,
+        character.avatarUrl,
+        character.name,
       );
       this.router.navigate(['lobby', response.sessionId]);
     } catch (err) {

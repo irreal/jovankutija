@@ -1,7 +1,7 @@
 <div class="page"></div>
 <div class="game-container">
   <img
-    src="/assets/img/izbor-mob.png"
+    src="/assets/img/izbor-mob.svg"
     class="background-image show-when-high"
     alt="background"
   />
@@ -34,6 +34,7 @@
           <div class="placeholder"></div>
           <img
             class="character"
+            (click)="selectCharacter(character, lobby)"
             [class.picked]="isInUse(character, lobby)"
             [src]="character.avatarUrl"
             [alt]="character.name"
@@ -49,6 +50,23 @@
   </div>
 </ng-template>
 
+<p-dialog
+  header="Ulazak u sobu"
+  [(visible)]="showError"
+  [modal]="true"
+  [style]="{ width: '80vw', 'font-size': '2vw' }"
+  [baseZIndex]="10000"
+>
+  {{ errorText }}
+  <p-footer>
+    <p-button
+      type="button"
+      icon="pi pi-check"
+      (click)="showError = false"
+      label="Ok"
+    ></p-button>
+  </p-footer>
+</p-dialog>
 <!-- <div *ngIf="lobby$ | async as lobby; else loading">
   <p>Ulazite u sobu: {{ lobby.name }}</p>
   <p>Tema sobe: {{ lobby.setName }}</p>
@@ -81,20 +99,4 @@
 <ng-template #loading>
   Učitavanje u toku...
 </ng-template>
-<p-dialog
-  header="Ulazak u sobu"
-  [(visible)]="showError"
-  [modal]="true"
-  [style]="{ width: '50vw' }"
-  [baseZIndex]="10000"
->
-  {{ errorText }}
-  <p-footer>
-    <p-button
-      type="button"
-      icon="pi pi-check"
-      (click)="showError = false"
-      label="Ok"
-    ></p-button>
-  </p-footer>
-</p-dialog> -->
+-->

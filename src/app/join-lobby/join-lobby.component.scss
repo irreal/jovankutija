@@ -61,6 +61,7 @@
     }
     ::ng-deep .ui-carousel .character.picked {
       filter: grayscale(1);
+      opacity: 0.5;
     }
   }
 }

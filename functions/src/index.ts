@@ -23,13 +23,13 @@ export const joinLobbyC = functions.https.onCall((data, context) => {
       const inSession = lobbyDocument.docs[0]
         .data()
         .players.filter((p: any) => p.id !== uid);
-      const existingNameOrAvatar = inSession.find(
-        (p: any) => p.name === data.nickname || p.avatarUrl === data.avatarUrl,
+      const existingAvatar = inSession.find(
+        (p: any) => p.avatarUrl === data.avatarUrl,
       );
-      if (existingNameOrAvatar) {
+      if (existingAvatar) {
         throw new functions.https.HttpsError(
           'already-exists',
-          'U sobi se već nalazi korisnik sa istim imenom ili likom kao što ste vi izabrali.',
+          'U sobi se već nalazi korisnik sa istim likom koji ste i vi izabrali. Izaberite jednog od dostupnih likova.',
         );
       }
       inSession.push({
