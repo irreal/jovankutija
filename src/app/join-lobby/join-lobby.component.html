@@ -25,36 +25,28 @@
         {{ getCharacterTitle(activeCharacter, lobby) }}
       </div>
       <img
-        class="character"
-        (swipeleft)="updateActiveCharacterIndex(-1)"
-        (swiperight)="updateActiveCharacterIndex(1)"
+        [style.--character-left.%]="nextCharacterLeft"
+        [style.--character-opacity]="nextCharacterOpacity"
+        *ngIf="nextActiveCharacterAdjustment !== 0"
+        class="character-base next-character"
+        [class]="isInUse(nextActiveCharacter, lobby) ? 'picked' : 'available'"
+        [src]="nextActiveCharacter.avatarUrl"
+        [alt]="nextActiveCharacter.name"
+      />
+      <img
+        [style.--character-left.%]="characterLeft"
+        [style.--character-opacity]="characterOpacity"
+        class="character-base character"
+        (pan)="updatePan($event)"
+        (panend)="endPan()"
+        (pancancel)="endPan()"
         (click)="selectCharacter(activeCharacter, lobby)"
-        [class.picked]="isInUse(activeCharacter, lobby)"
+        [class]="isInUse(activeCharacter, lobby) ? 'picked' : 'available'"
         [src]="activeCharacter.avatarUrl"
         [alt]="activeCharacter.name"
       />
-      <div
-        class="previous-character"
-        (click)="updateActiveCharacterIndex(-1)"
-      ></div>
-      <div class="next-character" (click)="updateActiveCharacterIndex(1)"></div>
-      <!-- <p-carousel 
-        [value]="characters"
-        [circular]="true"
-        (onPage)="activeCharacterIndex = $event.page"
-        [styleClass]="'game-panel carousel'"
-      >
-        <ng-template let-character pTemplate="item">
-          <div class="placeholder"></div>
-          <img
-            class="character"
-            (click)="selectCharacter(character, lobby)"
-            [class.picked]="isInUse(character, lobby)"
-            [src]="character.avatarUrl"
-            [alt]="character.name"
-          />
-        </ng-template>
-      </p-carousel> -->
+      <div class="previous-character-btn" (click)="cycleCharacter(-1)"></div>
+      <div class="next-character-btn" (click)="cycleCharacter(1)"></div>
     </div>
   </div>
 </div>

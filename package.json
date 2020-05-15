@@ -27,6 +27,7 @@
     "@angular/platform-browser": "~9.1.7",
     "@angular/platform-browser-dynamic": "~9.1.7",
     "@angular/router": "~9.1.7",
+    "between.js": "^0.1.2-fix.2",
     "firebase": "^7.14.3",
     "hammerjs": "^2.0.8",
     "primeflex": "^1.1.0",
