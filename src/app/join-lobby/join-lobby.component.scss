@@ -67,10 +67,10 @@
       opacity: var(--character-opacity);
     }
     .character-base.available {
-      opacity: var(--character-opacity);
+      filter: grayscale(0%);
     }
     .character-base.picked {
-      opacity: min(var(--character-opacity), 0.5);
+      filter: grayscale(100%);
     }
     .previous-character-btn,
     .next-character-btn {
@@ -85,12 +85,6 @@
     .next-character-btn {
       left: 70%;
       top: 52%;
-    }
-    .next-character.picked {
-      filter: grayscale(1);
-    }
-    .character.picked {
-      filter: grayscale(1);
     }
   }
 }

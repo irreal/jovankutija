@@ -19,17 +19,17 @@
 
     <div
       class="show-when-high game-panel-container"
-      *ngIf="lobby$ | async as lobby; else loading"
+      *ngIf="lobbySnapshot; else loading"
     >
       <div class="game-panel text nickname">
-        {{ getCharacterTitle(activeCharacter, lobby) }}
+        {{ getCharacterTitle(activeCharacter) }}
       </div>
       <img
         [style.--character-left.%]="nextCharacterLeft"
         [style.--character-opacity]="nextCharacterOpacity"
         *ngIf="nextActiveCharacterAdjustment !== 0"
         class="character-base next-character"
-        [class]="isInUse(nextActiveCharacter, lobby) ? 'picked' : 'available'"
+        [class]="isInUse(nextActiveCharacter) ? 'picked' : 'available'"
         [src]="nextActiveCharacter.avatarUrl"
         [alt]="nextActiveCharacter.name"
       />
@@ -40,8 +40,8 @@
         (pan)="updatePan($event)"
         (panend)="endPan()"
         (pancancel)="endPan()"
-        (click)="selectCharacter(activeCharacter, lobby)"
-        [class]="isInUse(activeCharacter, lobby) ? 'picked' : 'available'"
+        (click)="selectCharacter(activeCharacter)"
+        [class]="isInUse(activeCharacter) ? 'picked' : 'available'"
         [src]="activeCharacter.avatarUrl"
         [alt]="activeCharacter.name"
       />
