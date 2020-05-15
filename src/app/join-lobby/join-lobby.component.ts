@@ -120,7 +120,12 @@ export class JoinLobbyComponent implements OnInit {
     requestAnimationFrame(animationFrame);
   }
 
-  cycleCharacter(amount: 1 | -1) {
+  cycleCharacter(amount: number) {
+    if (amount < 0) {
+      amount = -1;
+    } else {
+      amount = 1;
+    }
     this.nextActiveCharacterAdjustment = amount * -1;
     this.lastWidth = amount;
     this.endPan(0);
