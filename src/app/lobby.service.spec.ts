@@ -6,11 +6,13 @@ describe('LobbyService', () => {
   let service: LobbyService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [{provide: LobbyService, useValue: {}}]
+    });
     service = TestBed.inject(LobbyService);
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(service).toBeTrue();
   });
 });
